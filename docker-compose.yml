@@ -1,0 +1,17 @@
+version: "2.3"
+services:
+    tetris:
+        build:
+            context: ./docker
+            network: host
+            dockerfile: Dockerfile.pytorchv1.4
+        container_name: tetris
+        environment:
+            - DISPLAY
+        tty: true
+        volumes:
+            - ./:/home/ubuntu/work
+        dns:
+            - 8.8.8.8
+        ports:
+            - 6080:80
